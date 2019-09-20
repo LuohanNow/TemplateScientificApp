@@ -1,0 +1,59 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{super()}}
+    <style>
+        .appsize { width: 800px }
+    </style>
+    <link rel = "stylesheet" href="static/basic.css" type="text/css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{% endblock %}
+{% block content %}
+
+    <h2>Damped sine wave</h2>
+
+    This web page visualizes the function 
+    \( u(t) = Ae^{-bt}\sin (w t), \hbox{ for } t\in [0,T]. \)
+    <!-- Эта страница предназначена для визуализации фукнций: \(z(x) = arctgx+b\) и 
+    \( y(x) = \sum\limits^{\infty}_{n=1} { (-1)^n * x^{2n + 1} \over (2n +1)}.\) -->
+
+    <p>
+        <form class="navbar-form navbar-top" method="post" action="">
+          <div class="form-group">
+          {% for field in form %}
+            <div class="row">
+             <div class="input-group appsize">
+              <label class="col-sm-1 control-label">
+              <span class="input-group-addon"> \( {{ field.name }} \) </span>
+              </label>
+              <div class="col-sm-4">
+              {{ field(class_="form-control") }}
+              </div>
+              <div class="col-sm-4">
+                {{ field.label }}
+              </div>
+              {% if field.errors %}
+                {% for error in field.errors %}
+                  <div class="col-sm-3">
+                    <div style="color: red;">{{ error }}</div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+             </div>
+            </div>
+          {% endfor %}
+        <br/>
+        <input type="submit" value="Compute" class="btn btn-default">
+        </form>
+        
+        <p>
+        {% if result != None %}
+        <img src="{{ result }}" width="500">
+        {% endif %}
+        </html>
+{% endblock %}
+
+        
+       
+
