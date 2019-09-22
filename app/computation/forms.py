@@ -1,7 +1,9 @@
-from wtforms import Form, FloatField, validators
+from flask_wtf import FlaskForm
+from wtforms import FloatField, SubmitField
+from wtforms import validators
 from math import pi
 
-class InputForm(Form):
+class InputForm(FlaskForm):
 
     A = FloatField(label='amplitude (m)', default=1.0, validators=[validators.NumberRange(-5, 5, message='-5;5')])
 
@@ -10,3 +12,5 @@ class InputForm(Form):
     w = FloatField(label='frequency (1/s)', default=2*pi, validators=[validators.InputRequired()])
 
     T = FloatField(label='time interval (s)', default=18, validators=[validators.InputRequired()])
+
+    compute = SubmitField('Compute')
