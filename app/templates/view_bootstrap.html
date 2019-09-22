@@ -42,12 +42,15 @@
         
         <p>
         {% if result != None %}
-        <img src="{{ result }}" width="500">
+        {#result[1]|safe #}
+        {#result[2]|safe #}
+        {{ result|safe }}
         {% endif %}
         </html>
 {% endblock %}
 
 {% block scripts %}
+  {#result[0]|safe #}
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     {{super()}}
