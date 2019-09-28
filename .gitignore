@@ -4,3 +4,4 @@ TODO
 __pycache__
 app/__pycache__
 app/computation/__pycache__
+app/__init__.pyc
