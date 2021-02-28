@@ -1,3 +1,3 @@
 # TemplateScientificApp
 
-Flask template for scientific applications.
+A flask template to create scientific web applications.
